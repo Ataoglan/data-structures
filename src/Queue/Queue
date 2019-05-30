@@ -1,0 +1,103 @@
+Like Stack, Queue is a linear structure which follows a particular order in which the operations are performed. The order is First In First Out (FIFO).  A good example of queue is any queue of consumers for a resource where the consumer that came first is served first.
+The difference between stacks and queues is in removing. In a stack we remove the item the most recently added; in a queue, we remove the item the least recently added.
+
+Operations on Queue:
+Mainly the following four basic operations are performed on queue:
+
+Enqueue: Adds an item to the queue. If the queue is full, then it is said to be an Overflow condition.
+Dequeue: Removes an item from the queue. The items are popped in the same order in which they are pushed. If the queue is empty, then it is said to be an Underflow condition.
+Front: Get the front item from queue.
+Rear: Get the last item from queue.
+
+Applications of Queue:
+Queue is used when things don’t have to be processed immediatly, but have to be processed in First InFirst Out order like Breadth First Search. This property of Queue makes it also useful in following kind of scenarios.
+
+1) When a resource is shared among multiple consumers. Examples include CPU scheduling, Disk Scheduling.
+2) When data is transferred asynchronously (data not necessarily received at same rate as sent) between two processes. Examples include IO Buffers, pipes, file IO, etc.
+
+Priority Queue
+----------------------------------------------------------------
+Priority Queue is an extension of queue with following properties.
+
+Every item has a priority associated with it.
+An element with high priority is dequeued before an element with low priority.
+If two elements have the same priority, they are served according to their order in the queue.
+In the below priority queue, element with maximum ASCII value will have the highest priority.
+
+
+A typical priority queue supports following operations.
+insert(item, priority): Inserts an item with given priority.
+getHighestPriority(): Returns the highest priority item.
+deleteHighestPriority(): Removes the highest priority item.
+
+How to implement priority queue?
+
+
+1/Using Array:
+
+ A simple implementation is to use array of following structure.
+***************************
+struct item {
+   int item;
+   int priority;
+}
+-******************************
+insert() operation can be implemented by adding an item at end of array in O(1) time.
+
+
+
+getHighestPriority() operation can be implemented by linearly searching the highest priority item in array. This operation takes O(n) time.
+
+deleteHighestPriority() operation can be implemented by first linearly searching an item, then removing the item by moving all subsequent items one position back.
+
+We can also use Linked List, time complexity of all operations with linked list remains same as array. The advantage with linked list is deleteHighestPriority() can be more efficient as we don’t have to move items.
+
+
+2/Using Heaps:
+
+Heap is generally preferred for priority queue implementation because heaps provide better performance compared arrays or linked list. In a Binary Heap, getHighestPriority() can be implemented in O(1) time, insert() can be implemented in O(Logn) time and deleteHighestPriority() can also be implemented in O(Logn) time.
+With Fibonacci heap, insert() and getHighestPriority() can be implemented in O(1) amortized time and deleteHighestPriority() can be implemented in O(Logn) amortized time.
+
+Applications of Priority Queue:
+1) CPU Scheduling
+2) Graph algorithms like Dijkstra’s shortest path algorithm, Prim’s Minimum Spanning Tree, etc
+3) All queue applications where priority is involved.
+
+A priority queue is implemented using Heap. Please refer below articles for our own implementation and library implementations.
+
+Binary Heap (The most common implementation of priority queue)
+Priority Queue in C++.
+Priority Queue in Java.
+Priority Queue in Python.
+Priority Queue in JavaScript.
+
+
+
+
+
+
+
+
+
+
+Queue Interface In Java
+The Queue interface is available in java.util package and extends the Collection interface. The queue collection is used to hold the elements about to be processed and provides various operations like the insertion, removal etc. It is an ordered list of objects with its use limited to insert elements at the end of the list and deleting elements from the start of list i.e. it follows the FIFO or the First-In-First-Out principle. Being an interface the queue needs a concrete class for the declaration and the most common classes are the PriorityQueue and LinkedList in Java.It is to be noted that both the implementations are not thread safe. PriorityBlockingQueue is one alternative implementation if thread safe implementation is needed. Few important characteristics of Queue are:
+
+The Queue is used to insert elements at the end of the queue and removes from the beginning of the queue. It follows FIFO concept.
+The Java Queue supports all methods of Collection interface including insertion, deletion etc.
+LinkedList, ArrayBlockingQueue and PriorityQueue are the most frequently used implementations.
+If any null operation is performed on BlockingQueues, NullPointerException is thrown.
+
+
+BlockingQueues have thread-safe implementations.
+The Queues which are available in java.util package are Unbounded Queues
+The Queues which are available in java.util.concurrent package are the Bounded Queues.
+All Queues except the Deques supports insertion and removal at the tail and head of the queue respectively. The Deques support element insertion and removal at both ends.
+Methods in Queue:
+
+add()- This method is used to add elements at the tail of queue. More specifically, at the last of linkedlist if it is used, or according to the priority in case of priority queue implementation.
+peek()- This method is used to view the head of queue without removing it. It returns Null if the queue is empty.
+element()- This method is similar to peek(). It throws NoSuchElementException when the queue is empty.
+remove()- This method removes and returns the head of the queue. It throws NoSuchElementException when the queue is impty.
+poll()- This method removes and returns the head of the queue. It returns null if the queue is empty.
+size()- This method return the no. of elements in the queue.
