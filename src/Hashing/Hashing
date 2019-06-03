@@ -1,0 +1,17 @@
+Hashing Data Structure
+----------------------------------
+
+Hash Table Nedir?
+-----------------------
+
+* Hash fonksiyonları tek yönlü fonksiyonlardır. Geri dönüşü yoktur.
+* En ilkel yöntemi mod almaktır.
+* Çakışma (collisions) durumunda bulduğu yerden başlayıp boş yere kadar devam ediyor ve ilk boş bulduğu yere koyuyor.
+* Search etme de aynı yöntemle yapılıyor mod sonucu istenen değer değilse tek tek bakıyoruz.
+* Best case O(1) wprst case O(n)
+
+Recall the Map ADT
+--------------------------
+
+
+
